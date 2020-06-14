@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Python数据类型 &mdash; learn 1.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="2. Python数据可视化" href="hello.html" />
+    <link rel="prev" title="Welcome to learn’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> learn
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Python数据类型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 多个变量赋值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.2 标准数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#number">1.3 Number（数字）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.4 数值运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string">1.5 String（字符串）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list">1.6 List（列表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tuple">1.7 Tuple（元组）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set">1.8 Set（集合）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dictionary">1.9 Dictionary（字典）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hello.html">2. Python数据可视化</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">learn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. Python数据类型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/page.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python">
+<h1>1. Python数据类型<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<p>Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。</p>
+<p>在 Python 中，变量就是变量，它没有类型，我们所说的”类型”是变量所指的内存中对象的类型。</p>
+<p>等号（=）用来给变量赋值。</p>
+<p>等号（=）运算符左边是一个变量名,等号（=）运算符右边是存储在变量中的值。例如：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="ch">#!/usr/bin/python</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">100</span>          <span class="c1"># 整型变量</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="n">miles</span>   <span class="o">=</span> <span class="mf">1000.0</span>       <span class="c1"># 浮点型变量</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="n">name</span>    <span class="o">=</span> <span class="s2">&quot;runoob&quot;</span>     <span class="c1">#字符串</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="nb">print</span> <span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="nb">print</span> <span class="p">(</span><span class="n">miles</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="nb">print</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>执行以上程序会输出如下结果：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">1000.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">runoob</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h2>1.1 多个变量赋值<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>Python允许你同时为多个变量赋值。例如：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>以上实例，创建一个整型对象，值为 1，从后向前赋值，三个变量被赋予相同的数值。</p>
+<p>您也可以为多个对象指定多个变量。例如：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;runoob&quot;</span>
+</pre></div>
+</div>
+<p>以上实例，两个整型对象 1 和 2 的分配给变量 a 和 b，字符串对象 “runoob” 分配给变量 c。</p>
+</div>
+<div class="section" id="id2">
+<h2>1.2 标准数据类型<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>Python3 中有六个标准的数据类型：</p>
+<p>Number（数字）</p>
+<p>String（字符串）</p>
+<p>List（列表）</p>
+<p>Tuple（元组）</p>
+<p>Set（集合）</p>
+<p>Dictionary（字典）</p>
+<p>Python3 的六个标准数据类型中：</p>
+<p>不可变数据（3 个）：Number（数字）、String（字符串）、Tuple（元组）；</p>
+<p>可变数据（3 个）：List（列表）、Dictionary（字典）、Set（集合）。</p>
+</div>
+<div class="section" id="number">
+<h2>1.3 Number（数字）<a class="headerlink" href="#number" title="永久链接至标题">¶</a></h2>
+<p>Python3 支持 int、float、bool、complex（复数）。</p>
+<p>在Python 3里，只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。</p>
+<p>像大多数语言一样，数值类型的赋值和计算都是很直观的。</p>
+<p>内置的 type() 函数可以用来查询变量所指的对象类型。</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; a, b, c, d = 20, 5.5, True, 4+3j
+&gt;&gt;&gt; print(type(a), type(b), type(c), type(d))
+&gt;&gt;&gt; &lt;class &#39;int&#39;&gt; &lt;class &#39;float&#39;&gt; &lt;class &#39;bool&#39;&gt; &lt;class &#39;complex&#39;&gt;
+</pre></div>
+</div>
+<p>此外还可以用 isinstance 来判断：</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">111</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span>
+</pre></div>
+</div>
+<p>isinstance 和 type 的区别在于：</p>
+<p>type()不会认为子类是一种父类类型。</p>
+<p>isinstance()会认为子类是一种父类类型。</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">A</span><span class="p">(),</span> <span class="n">A</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">())</span> <span class="o">==</span> <span class="n">A</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">B</span><span class="p">(),</span> <span class="n">A</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">B</span><span class="p">())</span> <span class="o">==</span> <span class="n">A</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">False</span>
+</pre></div>
+</div>
+<p>注意：在 Python2 中是没有布尔型的，它用数字 0 表示 False，用 1 表示 True。到 Python3 中，把 True 和 False 定义成关键字了，但它们的值还是 1 和 0，它们可以和数字相加。</p>
+<p>当你指定一个值时，Number 对象就会被创建：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var2</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>您也可以使用del语句删除一些对象引用。</p>
+<p>del语句的语法是：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">var1</span><span class="p">[,</span><span class="n">var2</span><span class="p">[,</span><span class="n">var3</span><span class="p">[</span><span class="o">....</span><span class="p">,</span><span class="n">varN</span><span class="p">]]]</span>
+</pre></div>
+</div>
+<p>您可以通过使用del语句删除单个或多个对象。例如：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">var</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">var_a</span><span class="p">,</span> <span class="n">var_b</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>1.4 数值运算<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span>  <span class="c1"># 加法</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">4.3</span> <span class="o">-</span> <span class="mi">2</span> <span class="c1"># 减法</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">2.3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="mi">7</span>  <span class="c1"># 乘法</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">21</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">/</span> <span class="mi">4</span>  <span class="c1"># 除法，得到一个浮点数</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">0.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">//</span> <span class="mi">4</span> <span class="c1"># 除法，得到一个整数</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">17</span> <span class="o">%</span> <span class="mi">3</span> <span class="c1"># 取余</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">5</span> <span class="c1"># 乘方</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">32</span>
+</pre></div>
+</div>
+<p>注意：</p>
+<blockquote>
+<div><p>1、Python可以同时为多个变量赋值，如a, b = 1, 2。</p>
+<p>2、一个变量可以通过赋值指向不同类型的对象。</p>
+<p>3、数值的除法包含两个运算符：/ 返回一个浮点数，// 返回一个整数。</p>
+<p>4、在混合计算时，Python会把整型转换成为浮点数。</p>
+</div></blockquote>
+</div>
+<div class="section" id="string">
+<h2>1.5 String（字符串）<a class="headerlink" href="#string" title="永久链接至标题">¶</a></h2>
+<p>Python中的字符串用单引号 ‘ 或双引号 ” 括起来，同时使用反斜杠 转义特殊字符。</p>
+<p>字符串的截取的语法格式如下：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">变量</span><span class="p">[</span><span class="n">头下标</span><span class="p">:</span><span class="n">尾下标</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>索引值以 0 为开始值，-1 为从末尾的开始位置。</p>
+<p>加号 + 是字符串的连接符， 星号 * 表示复制当前字符串，与之结合的数字为复制的次数。实例如下：</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="ch">#!/usr/bin/python3</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Runoob&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">str</span><span class="p">)</span>          <span class="c1"># 输出字符串</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># 输出第一个到倒数第二个的所有字符</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>       <span class="c1"># 输出字符串第一个字符</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>     <span class="c1"># 输出从第三个开始到第五个的字符</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>      <span class="c1"># 输出从第三个开始的后的所有字符</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1"># 输出字符串两次，也可以写成 print (2 * str)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="o">+</span> <span class="s2">&quot;TEST&quot;</span><span class="p">)</span> <span class="c1"># 连接字符串</span>
+<span class="go">执行以上程序会输出如下结果：</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Runoob</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Runoo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">noo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">noob</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">RunoobRunoob</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">RunoobTEST</span>
+</pre></div>
+</div>
+<p>Python 使用反斜杠 转义特殊字符，如果你不想让反斜杠发生转义，可以在字符串前面添加一个 r，表示原始字符串：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ru</span><span class="se">\n</span><span class="s1">oob&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ru</span>
+<span class="go">oob</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Ru\noob&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ru</span> \<span class="n">n</span> <span class="n">oob</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>另外，反斜杠()可以作为续行符，表示下一行是上一行的延续。也可以使用 “””…””” 或者 ‘’’…’’’ 跨越多行。</p>
+<p>注意，Python 没有单独的字符类型，一个字符就是长度为1的字符串。</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">word</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="n">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="n">P</span>
+</pre></div>
+</div>
+<p>与 C 字符串不同的是，Python 字符串不能被改变。向一个索引位置赋值，比如word[0] = ‘m’会导致错误。</p>
+<p>注意：</p>
+<blockquote>
+<div><p>1、反斜杠可以用来转义，使用r可以让反斜杠不发生转义。</p>
+<p>2、字符串可以用+运算符连接在一起，用*运算符重复。</p>
+<p>3、Python中的字符串有两种索引方式，从左往右以0开始，从右往左以-1开始。</p>
+<p>4、Python中的字符串不能改变。</p>
+</div></blockquote>
+</div>
+<div class="section" id="list">
+<h2>1.6 List（列表）<a class="headerlink" href="#list" title="永久链接至标题">¶</a></h2>
+<p>List（列表） 是 Python 中使用最频繁的数据类型。</p>
+<p>列表可以完成大多数集合类的数据结构实现。列表中元素的类型可以不相同，它支持数字，字符串甚至可以包含列表（所谓嵌套）。</p>
+<p>列表是写在方括号 [] 之间、用逗号分隔开的元素列表。</p>
+<p>和字符串一样，列表同样可以被索引和截取，列表被截取后返回一个包含所需元素的新列表。</p>
+<p>列表截取的语法格式如下：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">变量</span><span class="p">[</span><span class="n">头下标</span><span class="p">:</span><span class="n">尾下标</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>索引值以 0 为开始值，-1 为从末尾的开始位置。</p>
+<p>加号 + 是列表连接运算符，星号 * 是重复操作。如下实例：</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="ch">#!/usr/bin/python3</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">786</span> <span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mf">70.2</span> <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tinylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">list</span><span class="p">)</span>            <span class="c1"># 输出完整列表</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>         <span class="c1"># 输出列表第一个元素</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>       <span class="c1"># 从第二个开始输出到第三个元素</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>        <span class="c1"># 输出从第三个元素开始的所有元素</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">tinylist</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>    <span class="c1"># 输出两次列表</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">list</span> <span class="o">+</span> <span class="n">tinylist</span><span class="p">)</span> <span class="c1"># 连接列表</span>
+</pre></div>
+</div>
+<p>以上实例输出结果：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">786</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mf">70.2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">abcd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">786</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mf">2.23</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mf">70.2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">786</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mf">70.2</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>与Python字符串不一样的是，列表中的元素是可以改变的：</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># 将对应的元素值设置为 []</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="go">List 内置了有很多方法，例如 append()、pop() 等等，这在后面会讲到。</span>
+</pre></div>
+</div>
+<p>注意：</p>
+<blockquote>
+<div><p>1、List写在方括号之间，元素用逗号隔开。</p>
+<p>2、和字符串一样，list可以被索引和切片。</p>
+<p>3、List可以使用+操作符进行拼接。</p>
+<p>4、List中的元素是可以改变的。</p>
+</div></blockquote>
+<p>Python 列表截取可以接收第三个参数，参数作用是截取的步长，以下实例在索引 1 到索引 4 的位置并设置为步长为 2（间隔一个位置）来截取字符串：</p>
+<p>如果第三个参数为负数表示逆向读取，以下实例用于翻转字符串：</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">reverseWords</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 通过空格将字符串分隔符，把各个单词分隔为列表</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">inputWords</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># 翻转字符串</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># 假设列表 list = [1,2,3,4],</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># list[0]=1, list[1]=2 ，而 -1 表示最后一个元素 list[-1]=4 ( 与 list[3]=4 一样)</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># inputWords[-1::-1] 有三个参数</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># 第一个参数 -1 表示最后一个元素</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># 第二个参数为空，表示移动到列表末尾</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># 第三个参数为步长，-1 表示逆向</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">inputWords</span><span class="o">=</span><span class="n">inputWords</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># 重新组合字符串</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inputWords</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="k">return</span> <span class="n">output</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="nb">input</span> <span class="o">=</span> <span class="s1">&#39;I like runoob&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">rw</span> <span class="o">=</span> <span class="n">reverseWords</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="nb">print</span><span class="p">(</span><span class="n">rw</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出结果为：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">runoob</span> <span class="n">like</span> <span class="n">I</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tuple">
+<h2>1.7 Tuple（元组）<a class="headerlink" href="#tuple" title="永久链接至标题">¶</a></h2>
+<p>元组（tuple）与列表类似，不同之处在于元组的元素不能修改。元组写在小括号 () 里，元素之间用逗号隔开。</p>
+<p>元组中的元素类型也可以不相同：</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="ch">#!/usr/bin/python3</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">786</span> <span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mf">70.2</span>  <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tinytuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">)</span>             <span class="c1"># 输出完整元组</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>          <span class="c1"># 输出元组的第一个元素</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>        <span class="c1"># 输出从第二个元素开始到第三个元素</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>         <span class="c1"># 输出从第三个元素开始的所有元素</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">tinytuple</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>     <span class="c1"># 输出两次元组</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">tuple</span> <span class="o">+</span> <span class="n">tinytuple</span><span class="p">)</span> <span class="c1"># 连接元组</span>
+</pre></div>
+</div>
+<p>以上实例输出结果：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">786</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mf">70.2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">abcd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">786</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mf">2.23</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mf">70.2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">786</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mf">70.2</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;runoob&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>元组与字符串类似，可以被索引且下标索引从0开始，-1 为从末尾开始的位置。也可以进行截取（看上面，这里不再赘述）。</p>
+<p>其实，可以把字符串看作一种特殊的元组。</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11</span>  <span class="c1"># 修改元组元素的操作是非法的</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>虽然tuple的元素不可改变，但它可以包含可变的对象，比如list列表。</p>
+<p>构造包含 0 个或 1 个元素的元组比较特殊，所以有一些额外的语法规则：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; tup1 = ()    # 空元组
+&gt;&gt;&gt; tup2 = (20,) # 一个元素，需要在元素后添加逗号
+&gt;&gt;&gt; string、list 和 tuple 都属于 sequence（序列）。
+</pre></div>
+</div>
+<p>注意：</p>
+<blockquote>
+<div><p>1、与字符串一样，元组的元素不能修改。
+2、元组也可以被索引和切片，方法一样。
+3、注意构造包含 0 或 1 个元素的元组的特殊语法规则。
+4、元组也可以使用+操作符进行拼接。</p>
+</div></blockquote>
+</div>
+<div class="section" id="set">
+<h2>1.8 Set（集合）<a class="headerlink" href="#set" title="永久链接至标题">¶</a></h2>
+<p>集合（set）是由一个或数个形态各异的大小整体组成的，构成集合的事物或对象称作元素或是成员。</p>
+<p>基本功能是进行成员关系测试和删除重复元素。</p>
+<p>可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。</p>
+<p>创建格式：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parame</span> <span class="o">=</span> <span class="p">{</span><span class="n">value01</span><span class="p">,</span><span class="n">value02</span><span class="p">,</span><span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="ch">#!/usr/bin/python3</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Taobao&#39;</span><span class="p">,</span> <span class="s1">&#39;Runoob&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Zhihu&#39;</span><span class="p">,</span> <span class="s1">&#39;Baidu&#39;</span><span class="p">}</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span>   <span class="c1"># 输出集合，重复的元素被自动去掉</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 成员测试</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="s1">&#39;Runoob&#39;</span> <span class="ow">in</span> <span class="n">sites</span> <span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Runoob 在集合中&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">else</span> <span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Runoob 不在集合中&#39;</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># set可以进行集合运算</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;abracadabra&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;alacazam&#39;</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># a 和 b 的差集</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># a 和 b 的并集</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># a 和 b 的交集</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># a 和 b 中不同时存在的元素</span>
+</pre></div>
+</div>
+<p>以上实例输出结果：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;Zhihu&#39;</span><span class="p">,</span> <span class="s1">&#39;Baidu&#39;</span><span class="p">,</span> <span class="s1">&#39;Taobao&#39;</span><span class="p">,</span> <span class="s1">&#39;Runoob&#39;</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Runoob</span> <span class="n">在集合中</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dictionary">
+<h2>1.9 Dictionary（字典）<a class="headerlink" href="#dictionary" title="永久链接至标题">¶</a></h2>
+<p>字典（dictionary）是Python中另一个非常有用的内置数据类型。</p>
+<p>列表是有序的对象集合，字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。</p>
+<p>字典是一种映射类型，字典用 { } 标识，它是一个无序的 键(key) : 值(value) 的集合。</p>
+<p>键(key)必须使用不可变类型。</p>
+<p>在同一个字典中，键(key)必须是唯一的。</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="ch">#!/usr/bin/python3</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1 - 菜鸟教程&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>     <span class="o">=</span> <span class="s2">&quot;2 - 菜鸟工具&quot;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tinydict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;site&#39;</span><span class="p">:</span> <span class="s1">&#39;www.runoob.com&#39;</span><span class="p">}</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">])</span>       <span class="c1"># 输出键为 &#39;one&#39; 的值</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>           <span class="c1"># 输出键为 2 的值</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">tinydict</span><span class="p">)</span>          <span class="c1"># 输出完整的字典</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">tinydict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>   <span class="c1"># 输出所有键</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">tinydict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="c1"># 输出所有值</span>
+</pre></div>
+</div>
+<p>以上实例输出结果：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">-</span> <span class="n">菜鸟教程</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">-</span> <span class="n">菜鸟工具</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;site&#39;</span><span class="p">:</span> <span class="s1">&#39;www.runoob.com&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;site&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_values</span><span class="p">([</span><span class="s1">&#39;runoob&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;www.runoob.com&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>构造函数 dict() 可以直接从键值对序列中构建字典如下：</p>
+<p>实例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;Runoob&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Taobao&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;Runoob&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Taobao&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">36</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="n">Runoob</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Google</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">Taobao</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;Runoob&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Taobao&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>另外，字典类型也有一些内置的函数，例如clear()、keys()、values()等。</p>
+<p>注意：</p>
+<blockquote>
+<div><p>1、字典是一种映射类型，它的元素是键值对。</p>
+<p>2、字典的关键字必须为不可变类型，且不能重复。</p>
+<p>3、创建空字典使用 { }。</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hello.html" class="btn btn-neutral float-right" title="2. Python数据可视化" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to learn’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, keyichen
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
