@@ -11,7 +11,6 @@ Welcome to learn's documentation!
    :caption: Contents:
    
    page
-   hello
 
 
 
